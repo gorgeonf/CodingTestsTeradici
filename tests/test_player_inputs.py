@@ -8,3 +8,4 @@ def test_not_letter(capsys):
     with mock.patch.object(builtins, "input", lambda player: "1"):
         print("Inside the test")
         assert game(True) == "Wrong selection, try again."
+

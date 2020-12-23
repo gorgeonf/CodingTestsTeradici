@@ -1,60 +1,28 @@
-from src.rockPaperScissors import decide_game, game
+from unittest import mock
+
+from src.rockPaperScissors import game
+
+"""
+Tests of the function src.rockPaperScissors.game
+"""
 
 
-# Tests of the function decide_game
-
-# Tests of the player choosing rock
-def test_rock_rock(capsys):
-    decide_game("r", "r")
-    captured = capsys.readouterr()
-    assert captured.out == "\tDRAW!\n"
+# The player does NOT enters a character in the selection - return True
+@mock.patch("src.rockPaperScissors.get_player_choice")
+def test_wrong_selection(mock_get_player_choice):
+    mock_get_player_choice.return_value = -1
+    assert game() == True
 
 
-def test_rock_paper(capsys):
-    decide_game("r", "p")
-    captured = capsys.readouterr()
-    assert captured.out == "\tPaper covers rock YOU LOSE!\n"
+# The player enters the exit character 'x'
+@mock.patch("src.rockPaperScissors.get_player_choice")
+def test_x_game(mock_get_player_choice):
+    mock_get_player_choice.return_value = "x"
+    assert game() == False
 
 
-def test_rock_scissors(capsys):
-    decide_game("r", "s")
-    captured = capsys.readouterr()
-    assert captured.out == "\tRock blunts scissors YOU WIN!\n"
-
-
-# Test of the player choosing paper
-def test_paper_paper(capsys):
-    decide_game("p", "p")
-    captured = capsys.readouterr()
-    assert captured.out == "\tDRAW!\n"
-
-
-def test_paper_rock(capsys):
-    decide_game("p", "r")
-    captured = capsys.readouterr()
-    assert captured.out == "\tPaper covers rock YOU WIN!\n"
-
-
-def test_paper_scissors(capsys):
-    decide_game("p", "s")
-    captured = capsys.readouterr()
-    assert captured.out == "\tScissors cut paper YOU LOSE!\n"
-
-
-# Test of the player choosing scissors
-def test_scissors_scissors(capsys):
-    decide_game("s", "s")
-    captured = capsys.readouterr()
-    assert captured.out == "\tDRAW!\n"
-
-
-def test_scissors_rock(capsys):
-    decide_game("s", "r")
-    captured = capsys.readouterr()
-    assert captured.out == "\tRock blunts scissors YOU LOSE!\n"
-
-
-def test_scissors_paper(capsys):
-    decide_game("s", "p")
-    captured = capsys.readouterr()
-    assert captured.out == "\tScissors cut paper YOU WIN!\n"
+# The player enters a correct character in "rps"
+@mock.patch("src.rockPaperScissors.get_player_choice")
+def test_game_ok(mock_get_player_choice):
+    mock_get_player_choice.return_value = "r"
+    assert game() == True

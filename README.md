@@ -8,4 +8,4 @@ Once the image is built you can run the application with the following command:
 
 ## Executing the tests
 With the image built you can launch the tests with the command:
-`docker run -it <image_name> pytest -v` 
+`docker run -it <image_name> pytest` 

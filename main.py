@@ -1,12 +1,14 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 from src.rockPaperScissors import game
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print("Game instruction:")
+    print("Game of Rock, Paper, Scissors against the computer.\n"
+          "The winner is decided by these rules:\n"
+          "\t- Rock blunts scissors\n"
+          "\t- Paper covers rock\n"
+          "\t- Scissors cut paper")
+
+    # Control variable used to continue or stop the game
     game_on = True
-    game(game_on)
+    # Loop with the function game until game_on returns False
+    while game_on:
+        game_on = game()

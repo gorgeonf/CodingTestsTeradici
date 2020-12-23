@@ -19,15 +19,14 @@ def get_player_choice():
              -1 if the choice is incorrect
     """
     # Get the player input
-    player = input("\nMake your selection\nr: Rock p: Paper s: Scissors\t(x) Exit\n")
+    player = input("\nMake your selection\nRock: 'r'  Paper: 'p'  Scissors: 's'\t'x' Exit\n")
     # If the player enters a character in the selection we return it (and we put it in lower case)
     if player.lower() in list(CHOICES):
         return player.lower()
     # If the character is not in the proposed choice
     else:
-        print("/!\\ Wrong selection, try again.")
-        # We return a control value
-        # to be interpreted in the while loop of game()
+        print("*** Wrong selection, try again. ***")
+        # We return a control value to be interpreted in the while loop of game()
         return -1
 
 
@@ -50,40 +49,40 @@ def decide_game(player, computer):
     """
     # The player and computer picks the same item: it is a tie
     if player == computer:
-        print("\tDRAW!")
+        print("\tSame item picked ---> DRAW!")
 
     # The player picks Rock
     if player == CHOICES[0]:
         # Computer picks Scissors
         if computer == "s":
             print("\tRock blunts scissors", end=" ")
-            print("YOU WIN!")
+            print("---> YOU WIN!")
         # Computer picks Paper
         elif computer == "p":
             print("\tPaper covers rock", end=" ")
-            print("YOU LOSE!")
+            print("---> YOU LOSE!")
 
     # The player picks Paper
     if player == CHOICES[1]:
         # Computer picks Rock
         if computer == "r":
             print("\tPaper covers rock", end=" ")
-            print("YOU WIN!")
+            print("---> YOU WIN!")
         # Computer picks Scissors
         elif computer == "s":
             print("\tScissors cut paper", end=" ")
-            print("YOU LOSE!")
+            print("---> YOU LOSE!")
 
     # The player picks Scissors
     if player == CHOICES[2]:
         # Computer picks Paper
         if computer == "p":
             print("\tScissors cut paper", end=" ")
-            print("YOU WIN!")
+            print("---> YOU WIN!")
         # Computer picks Rock
         elif computer == "r":
             print("\tRock blunts scissors", end=" ")
-            print("YOU LOSE!")
+            print("---> YOU LOSE!")
 
 
 def game():

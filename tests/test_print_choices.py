@@ -12,12 +12,14 @@ def test_print_rock(capsys):
     assert captured.out == "You choose         : Rock\n" \
                            "The computer choose: Rock\n"
 
+
 # The function prints the same item for the player and the computer: Paper
 def test_print_paper(capsys):
     print_choices("p", "p")
     captured = capsys.readouterr()
     assert captured.out == "You choose         : Paper\n" \
                            "The computer choose: Paper\n"
+
 
 # The function prints the same item for the player and the computer: Scissors
 def test_print_scissors(capsys):

@@ -3,9 +3,9 @@ from src.rockPaperScissors import game
 
 def main():
     """
-        Main function: prints the instructions of the game and launches it.
-        The parameter game_on is used to keep the game going until the player
-        decides to quit it.
+    Prints the instructions of the game and launches it.
+    The parameter game_on is used to keep the game going until the player
+    decides to quit it.
     """
     print("Game of Rock, Paper, Scissors against the computer.\n"
           "The winner is decided by these rules:\n"
